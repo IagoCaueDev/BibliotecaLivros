@@ -19,7 +19,7 @@ namespace BibliotecaLivros.Controllers
 
         [HttpGet]
         [Route("Listar")]
-        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> Listar()
+        public async Task<ActionResult<ResponseModel<List<LivroModel>>>> Listar()
         {
             var livros = await _livrointeface.Listar();
             return Ok(livros);
@@ -27,7 +27,7 @@ namespace BibliotecaLivros.Controllers
 
         [HttpGet]
         [Route("BuscarLivroId/{idAutor}")]
-        public async Task<ActionResult<ResponseModel<AutorModel>>> BuscarAutorId(int idLivro)
+        public async Task<ActionResult<ResponseModel<LivroModel>>> BuscarLivroId(int idLivro)
         {
             var livros = await _livrointeface.BuscarLivroId(idLivro);
             return Ok(livros);
@@ -35,7 +35,7 @@ namespace BibliotecaLivros.Controllers
 
         [HttpPost]
         [Route("Criar")]
-        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> CriarAutor(LivroCriacaoDto livroCriacaoDto)
+        public async Task<ActionResult<ResponseModel<List<LivroModel>>>> CriarLivro(LivroCriacaoDto livroCriacaoDto)
         {
             var livros = await _livrointeface.CriarAutor(livroCriacaoDto);
             return Ok(livros);
@@ -43,7 +43,7 @@ namespace BibliotecaLivros.Controllers
 
         [HttpPut]
         [Route("Editar")]
-        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> EditarAutor(LivroEdicaoDto livroEdicaoDto)
+        public async Task<ActionResult<ResponseModel<List<LivroModel>>>> EditarLivro(LivroEdicaoDto livroEdicaoDto)
         {
             var livros = await _livrointeface.EditarLivro(livroEdicaoDto);
             return Ok(livros);
@@ -51,9 +51,9 @@ namespace BibliotecaLivros.Controllers
 
         [HttpDelete]
         [Route("Excluir")]
-        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> ExcluirAutor(int idAutor)
+        public async Task<ActionResult<ResponseModel<List<LivroModel>>>> ExcluirLivro(int idLivro)
         {
-            var livros = await _livrointeface.ExcluirLivro(idAutor);
+            var livros = await _livrointeface.ExcluirLivro(idLivro);
             return Ok(livros);
         }
 
